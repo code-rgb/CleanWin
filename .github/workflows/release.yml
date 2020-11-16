@@ -1,3 +1,6 @@
+- name: Create a Release
+  uses: actions/create-release@v1
+  
 on:
   push:
     # Sequence of patterns matched against refs/tags
