@@ -1,4 +1,3 @@
-##############
 #
 # CleanWin
 # Author: PratyakshM <pratyakshm@protonmail.com>
