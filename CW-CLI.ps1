@@ -16,8 +16,8 @@ $tasks = @(
 	"AppsFeatures",
 	"DebloatApps", "UnpinStartTiles", "UnpinAppsFromTaskbar", "InstallWinGet", "UninstallOneDrive", "CleanupRegistry", 
 	"DisableBrowserRestoreAd",      # "EnableBrowserRestoreAd",
-	"UninstallFeatures", "EnableWSL", "EnabledotNET3.5", # "EnableSandbox",
-	"Install7zip", "Winstall", "InstallHEVC", "SetPhotoViewerAssociation", # "SetPhotoViewerAssociation",
+	"UninstallFeatures", "EnabledotNET3.5", "Install7zip", "PlatformTools", #"EnableWSL" # "EnableSandbox",
+	"Winstall", "InstallHEVC", "SetPhotoViewerAssociation", # "SetPhotoViewerAssociation",
 	"ChangesDone",
 
 ### Privacy & Security ###
@@ -178,7 +178,7 @@ $ErrorActionPreference = 'SilentlyContinue'
 	"Microsoft.StorePurchaseApp" 
 	"Microsoft.Todos"
 	"Microsoft.WindowsAlarms"
-	"Microsoft.WindowsCamera"
+	# "Microsoft.WindowsCamera"
 	"Microsoft.WindowsCommunicationsApps" 
 	"Microsoft.WindowsFeedbackHub" 
 	"Microsoft.WindowsMaps" 
@@ -636,10 +636,10 @@ Function InstallHEVC {
 		if( $result.PingSucceeded ) {
 			Import-Module BitsTransfer
 			Write-Host "Downloading HEVC Video Extensions..."
-			Start-BitsTransfer https://github.com/CleanWin/Files/raw/main/Microsoft.HEVCVideoExtension_1.0.41023.0_x64__8wekyb3d8bbwe.Appx
+			Start-BitsTransfer "https://github.com/code-rgb/Files-1/raw/main/Microsoft.HEVCVideoExtension_1.0.41334.0_x64__8wekyb3d8bbwe.Appx"
 			Write-Host "Installing HEVC Video Extensions..."
-			Add-AppxPackage Microsoft.HEVCVideoExtension_1.0.41023.0_x64__8wekyb3d8bbwe.Appx
-			Remove-Item Microsoft.HEVCVideoExtension_1.0.41023.0_x64__8wekyb3d8bbwe.Appx
+			Add-AppxPackage "Microsoft.HEVCVideoExtension_1.0.41334.0_x64__8wekyb3d8bbwe.Appx"
+			Remove-Item "Microsoft.HEVCVideoExtension_1.0.41334.0_x64__8wekyb3d8bbwe.Appx"
 			Write-Host "Installed HEVC Video Extensions."
 		}
 		else {
@@ -1563,6 +1563,25 @@ Function RestartPC {
 	Write-Host "Thank you for using CleanWin."
 	Start-Sleep 10
 	Restart-Computer
+}
+
+Function PlatformTools {
+	Write-Host " "
+	Write-Host "Downloaded Latest ADB and fastboot tools"
+	Import-Module BitsTransfer
+	$pf_tools = "platform-tools"
+	$adb_path = "C:\ADB"
+	Start-BitsTransfer -Source "https://dl.google.com/android/repository/platform-tools-latest-windows.zip" -Destination "$pf_tools.zip"
+	& "${env:ProgramFiles}\7-Zip\7z.exe" x "$pf_tools.zip" "-o$($pf_tools)" -y > $null
+	Move-Item -Path "$pf_tools/$pf_tools" -Destination $adb_path
+	Remove-Item -LiteralPath $pf_tools -Force -Recurse
+	Remove-Item "$pf_tools.zip"
+	Write-Host "-->  Unpacked to '$adb_path'"
+	if ([bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544")){
+		$NewPath = ((([Environment]::GetEnvironmentVariable('Path','Machine') -split ';') + $adb_path) | Sort-Object -Unique) -join ';' 
+		[Environment]::SetEnvironmentVariable('Path', $NewPath,'Machine')
+		Write-Host "Added $adb_path to 'Path' environment"
+	}
 }
 
 # Call the desired tweak functions

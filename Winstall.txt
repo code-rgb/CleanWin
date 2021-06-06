@@ -1,0 +1,12 @@
+Microsoft.WindowsTerminal
+Adobe.AdobeAcrobatReaderDC
+CodecGuide.K-LiteCodecPackStandard
+Microsoft.Teams
+Google.Chrome
+GitHub.GitHubDesktop
+Git.Git
+TonecInc.IDM
+Telegram.TelegramDesktop
+qBittorrent.qBittorrent
+Spotify.Spotify
+Python.Python
