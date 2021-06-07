@@ -18,7 +18,7 @@ $tasks = @(
 	"DisableBrowserRestoreAd",      # "EnableBrowserRestoreAd",
 	"UninstallFeatures", "EnabledotNET3.5", "Install7zip", "PlatformTools", #"EnableWSL" # "EnableSandbox",
 	"Winstall", "InstallHEVC", "SetPhotoViewerAssociation", # "SetPhotoViewerAssociation",
-	"ChangesDone",
+	"ChangesDone", "VscodeExtention"
 
 ### Privacy & Security ###
 	"PrivacySecurity",
@@ -1583,6 +1583,50 @@ Function PlatformTools {
 		Write-Host "Added $adb_path to 'Path' environment"
 	}
 }
+
+
+Function CheckCommand($cmdname)
+{
+    return [bool](Get-Command -Name $cmdname -ErrorAction SilentlyContinue)
+}
+
+
+Function VscodeExtention {
+	Write-Host " "
+	Write-Host "Installing VS Code Extentions"
+	if (CheckCommand -cmdname 'code')
+	{
+		$vsCodeExec = "code"
+	}
+	else
+	{
+		# Default VS code Install Path
+		$vsCodeExec = "C:\users\$env:UserName\AppData\Local\Programs\Microsoft VS Code\bin\code"
+	}
+	$extensions = @(
+		"bungcip.better-toml",  # toml extension
+		"dracula-theme.theme-dracula", # theme
+		"equinusocio.vsc-material-theme-icons",  # file icon theme
+		"esbenp.prettier-vscode",  # code formatter
+		"karyfoundation.theme-karyfoundation-themes",  # theme
+		"ms-python.python",  # python extention
+		"ms-vscode.powershell",  # powershell extention
+		"oderwat.indent-rainbow",  # colorful indention
+		"PKief.material-icon-theme",  # file icon theme
+		"ritwickdey.LiveServer",  #  live server to display webpages with backend
+		"tinkertrain.theme-panda"  # theme
+	) | Sort-Object
+
+	$extensions | ForEach-Object {
+		try {
+			Invoke-Expression "& '$vsCodeExec' --install-extension $_ --force"
+			Write-Host # New-Line
+		} catch {
+			Write-Host $_
+		}
+	}
+}
+
 
 # Call the desired tweak functions
 $tasks | ForEach-Object { Invoke-Expression $_ }
