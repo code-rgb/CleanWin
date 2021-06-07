@@ -18,7 +18,7 @@ $tasks = @(
 	"DisableBrowserRestoreAd",      # "EnableBrowserRestoreAd",
 	"UninstallFeatures", "EnabledotNET3.5", "Install7zip", "PlatformTools", "CascadiaCodePL" #"EnableWSL" # "EnableSandbox",
 	"Winstall", "InstallHEVC", "SetPhotoViewerAssociation", # "SetPhotoViewerAssociation",
-	"ChangesDone", "VscodeExtention"
+	"ChangesDone", "VscodeExtention", "DownloadGpuDriver",
 
 ### Privacy & Security ###
 	"PrivacySecurity",
@@ -1658,6 +1658,17 @@ function CascadiaCodePL {
 	}
 	Remove-Item -LiteralPath "CascadiaCode" -Force -Recurse
 	Remove-Item "CascadiaCode_.zip"
+}
+
+
+function DownloadGpuDriver {
+	Write-Host " "
+	Write-Host "Downloading GPU driver for Lenovo IdeaPad 300 15ISK"
+	Write-Host " "
+	Write-Host "  ->  Integrated GPU (AMD R5 M330) ..."
+	$down_path = "$env:HOME\Desktop\AMD_R5_M330.exe"
+	Start-BitsTransfer -Source "https://drivers.amd.com/drivers/non-whql-radeon-software-adrenalin-2020-21.5.1-win10-64bit-may6.exe" -Destination $down_path
+	Write-Host "Saved to '$down_path'"
 }
 
 
