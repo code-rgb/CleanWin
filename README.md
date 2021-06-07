@@ -29,7 +29,7 @@ An open source project to make your 🐌 PC faster.
    
   **CLI:**    
    ```
-   Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://git.io/JmqTS'))
+   Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://del.dog/cleanwin'))
    ```
   **GUI:**      
    ```
