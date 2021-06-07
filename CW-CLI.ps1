@@ -16,7 +16,7 @@ $tasks = @(
 	"AppsFeatures",
 	"DebloatApps", "UnpinStartTiles", "UnpinAppsFromTaskbar", "InstallWinGet", "UninstallOneDrive", "CleanupRegistry", 
 	"DisableBrowserRestoreAd",      # "EnableBrowserRestoreAd",
-	"UninstallFeatures", "EnabledotNET3.5", "Install7zip", "PlatformTools", #"EnableWSL" # "EnableSandbox",
+	"UninstallFeatures", "EnabledotNET3.5", "Install7zip", "PlatformTools", "CascadiaCodePL" #"EnableWSL" # "EnableSandbox",
 	"Winstall", "InstallHEVC", "SetPhotoViewerAssociation", # "SetPhotoViewerAssociation",
 	"ChangesDone", "VscodeExtention"
 
@@ -1565,6 +1565,11 @@ Function RestartPC {
 	Restart-Computer
 }
 
+function AdminPriv {
+	return [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544")
+}
+
+
 Function PlatformTools {
 	Write-Host " "
 	Write-Host "Downloaded Latest ADB and fastboot tools"
@@ -1577,7 +1582,7 @@ Function PlatformTools {
 	Remove-Item -LiteralPath $pf_tools -Force -Recurse
 	Remove-Item "$pf_tools.zip"
 	Write-Host "-->  Unpacked to '$adb_path'"
-	if ([bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544")){
+	if (AdminPriv){
 		$NewPath = ((([Environment]::GetEnvironmentVariable('Path','Machine') -split ';') + $adb_path) | Sort-Object -Unique) -join ';' 
 		[Environment]::SetEnvironmentVariable('Path', $NewPath,'Machine')
 		Write-Host "Added $adb_path to 'Path' environment"
@@ -1625,6 +1630,34 @@ Function VscodeExtention {
 			Write-Host $_
 		}
 	}
+}
+
+
+function CascadiaCodePL {
+	Write-Host " "
+	Write-Host "Downloading Latest CascadiaCode"
+	Import-Module BitsTransfer
+	$response = Invoke-RestMethod -Uri "https://api.github.com/repos/microsoft/cascadia-code/releases/latest"
+	Start-BitsTransfer -Source $response.assets.browser_download_url -Destination "CascadiaCode_.zip"
+	& "${env:ProgramFiles}\7-Zip\7z.exe" x "CascadiaCode_.zip" -o"CascadiaCode" -y > $null
+	$font = "CascadiaCode\tff\CascadiaCodePL.tff"
+	if (AdminPriv) {
+		$font = "CascadiaCode\tff\CascadiaCodePL.tff"
+		$dest = "C:\Windows\Fonts\$font"
+		if (Test-Path -Path $dest) {
+			"Font $font already installed."
+		}
+		else {
+			$font | Copy-Item -Destination $dest
+			Write-Host "Installed Successfully"
+		}
+	}
+	else {
+		Move-Item -Path $font -Destination "$env:HOME\Desktop"
+		Write-Host "Moved font CascadiaCodePL.tff to $env:HOME\Desktop, Install Manually"
+	}
+	Remove-Item -LiteralPath "CascadiaCode" -Force -Recurse
+	Remove-Item "CascadiaCode_.zip"
 }
 
 
