@@ -10,3 +10,4 @@ Telegram.TelegramDesktop
 qBittorrent.qBittorrent
 Spotify.Spotify
 Python.Python
+JanDeDobbeleer.OhMyPosh
