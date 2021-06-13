@@ -1650,10 +1650,10 @@ function CascadiaCodePL {
 	& "${env:ProgramFiles}\7-Zip\7z.exe" x "CascadiaCode_.zip" -o"CascadiaCode" -y > $null
 	Start-Sleep 1
 	$font = $(Get-ChildItem "CascadiaCode\ttf\CascadiaCodePL.ttf").FullName
-	if (adminpriv) {
+	if (AdminPriv) {
 		$dest = "c:\windows\fonts\CascadiaCodePL.ttf"
 		if (Test-Path -Path $dest) {
-			"font $font already installed."
+			"CascadiaCodePL.ttf already installed."
 		}
 		else {
 			Move-Item $font $dest
@@ -1661,7 +1661,7 @@ function CascadiaCodePL {
 		}
 	}
 	else {
-		Move-Item $font "$home\desktop"
+		Move-Item $font "$HOME\desktop"
 		Write-Host "moved font cascadiacodepl.ttf to $home\desktop, install manually"
 	}
 	Remove-Item -LiteralPath "cascadiacode" -Force -Recurse
