@@ -5,69 +5,69 @@
 # Default preset
 $tasks = @(
 
-### Maintenance Tasks ###
- 	"Setup",
+	### Maintenance Tasks ###
+	"Setup",
 	"CleanWin",
 	"ProductInformation",
 	"InternetStatus",
 	"CreateSystemRestore",
 
-### Apps & Features ###
+	### Apps & Features ###
 	"AppsFeatures",
-	"DebloatApps", "UnpinStartTiles", "UnpinAppsFromTaskbar", "InstallWinGet", "UninstallOneDrive", "CleanupRegistry", 
-	"DisableBrowserRestoreAd",      # "EnableBrowserRestoreAd",
-	"UninstallFeatures", "EnabledotNET3.5", "Install7zip", "PlatformTools", "CascadiaCodePL" #"EnableWSL" # "EnableSandbox",
+	"DebloatApps", "UnpinStartTiles", "InstallWinGet", "UninstallOneDrive", "CleanupRegistry", "UnpinAppsFromTaskbar",
+	"DisableBrowserRestoreAd", # "EnableBrowserRestoreAd",
+	"UninstallFeatures", "Install7zip", "PlatformTools", "CascadiaCodePL" #  "EnabledotNET3.5" "EnableWSL" "EnableSandbox",
 	"Winstall", "InstallHEVC", "SetPhotoViewerAssociation", # "SetPhotoViewerAssociation",
-	"ChangesDone", "VscodeExtention", "DownloadGpuDriver",
+	"ChangesDone", "VscodeExtention",
 
-### Privacy & Security ###
+	### Privacy & Security ###
 	"PrivacySecurity",
-	"DisableActivityHistory",		# "EnableActivityHistory",
-	"DisableAdvertisingID",			# "EnableAdvertisingID",
-	"DisableBackgroundApps",      # "EnableBackgroundApps",
-	"DisableFeedback",		        # "EnableFeedback",
-	"DisableInkHarvesting",			# "EnableInkHarvesting",
-	"DisableLangAccess",  		    # "EnableLangAccess",
-	"DisableLocationTracking",      # "EnableLocationTracking",
-	"DisableMapUpdates",			# "EnableMapsUpdates",
-	"DisableSuggestions",		    # "EnableSuggestions",
-	"DisableSpeechRecognition",		# "EnableSpeechRecognition",
+	"DisableActivityHistory", # "EnableActivityHistory",
+	"DisableAdvertisingID", # "EnableAdvertisingID",
+	"DisableBackgroundApps", # "EnableBackgroundApps",
+	"DisableFeedback", # "EnableFeedback",
+	"DisableInkHarvesting", # "EnableInkHarvesting",
+	"DisableLangAccess", # "EnableLangAccess",
+	"DisableLocationTracking", # "EnableLocationTracking",
+	"DisableMapUpdates", # "EnableMapsUpdates",
+	"DisableSuggestions", # "EnableSuggestions",
+	"DisableSpeechRecognition", # "EnableSpeechRecognition",
 	"DisableTailoredExperiences",	# "EnableTailoredExperiences",
-	"DisableTelemetry",				# "EnableTelemetry",
-	"AutoLoginPostUpdate", 		    # "StayOnLockscreenPostUpdate",
-	"DisableMeltdownCompatFlag",    # "EnableMeltdownCompatFlag",
+	"DisableTelemetry", # "EnableTelemetry",
+	"AutoLoginPostUpdate", # "StayOnLockscreenPostUpdate",
+	"DisableMeltdownCompatFlag", # "EnableMeltdownCompatFlag",
 	"ChangesDone",
 
-### Tasks & Services ###
+	### Tasks & Services ###
 	"TasksServices",
-	"DisableStorageSense",		   # "EnableStorageSense",
-	"DisableReservedStorage",	   # "EnableReservedStorage",
-	"DisableAutoplay",             # "EnableAutoplay",
-	"DisableAutorun",              # "EnableAutorun",
-	"SetBIOSTimeUTC",              # "SetBIOSTimeLocal",
-	"EnableNumLock",			   # "DisableNumLock",
-	"DisableServices",			   # "EnableServices",
-	"DisableTasks",				   # "EnableTasks",
-	"SetupWindowsUpdate",		   # "ResetWindowsUpdate",
+	"DisableStorageSense", # "EnableStorageSense",
+	"DisableReservedStorage", # "EnableReservedStorage",
+	"DisableAutoplay", # "EnableAutoplay",
+	"DisableAutorun", # "EnableAutorun",
+	"SetBIOSTimeUTC", # "SetBIOSTimeLocal",
+	"EnableNumLock", # "DisableNumLock",
+	"DisableServices", # "EnableServices",
+	"DisableTasks", # "EnableTasks",
+	"SetupWindowsUpdate", # "ResetWindowsUpdate",
 	"EnablePowerdownAfterShutdown", # "DisablePowerdownAfterShutdown",
 	"ChangesDone",
 
-### Windows Explorer ###
+	### Windows Explorer ###
 	"PrintExplorerChanges",
-	"EnablePrtScrToSnip",		   # "DisablePrtScrSnip",
-	"DisableStickyKeys",           # "EnableStickyKeys",
-	"SetExplorerThisPC",           # "SetExplorerQuickAccess",
-    "Hide3DObjectsInThisPC",       # "Restore3DObjectsInThisPC",
-	"Hide3DObjectsInExplorer",     # "Restore3DObjectsInExplorer",
-	"ExpandRibbonInExplorer",	   # "MinimizeRibbonInExplorer",
-	"HideSearchBar",			   # "RestoreSearchBar"
-	"HideTaskView",                # "RestoreTaskView",
-	"HideCortana",			       # "RestoreCortana",
-	"HideMeetNow",				   # "RestoreMeetNow",
-	"DisableTaskbarFeed",		   # "EnableTaskbarFeed",
+	"EnablePrtScrToSnip", # "DisablePrtScrSnip",
+	"DisableStickyKeys", # "EnableStickyKeys",
+	"SetExplorerThisPC", # "SetExplorerQuickAccess",
+	"Hide3DObjectsInThisPC", # "Restore3DObjectsInThisPC",
+	"Hide3DObjectsInExplorer", # "Restore3DObjectsInExplorer",
+	"ExpandRibbonInExplorer", # "MinimizeRibbonInExplorer",
+	"HideSearchBar", # "RestoreSearchBar"
+	"HideTaskView", # "RestoreTaskView",
+	"HideCortana", # "RestoreCortana",
+	"HideMeetNow", # "RestoreMeetNow",
+	"DisableTaskbarFeed", # "EnableTaskbarFeed",
 	"ChangesDone",
 
-###  Tasks after successful run ###
+	###  Tasks after successful run ###
 	"RestartPC"
 )
 
@@ -113,11 +113,11 @@ Function InternetStatus {
 	Write-Host " "
 	Write-Host "Checking connectivity to the internet..."
 	$result = Test-NetConnection github.com
-	if( $result.PingSucceeded ) {
-	  Write-Host "This PC is connected."
-		} 
+	if ( $result.PingSucceeded ) {
+		Write-Host "This PC is connected."
+	} 
 	else {
-	  Write-Host "Can't connect to GitHub. Some features that require an internet connection will not work."
+		Write-Host "Can't connect to GitHub. Some features that require an internet connection will not work."
 	}
 }
 
@@ -145,76 +145,76 @@ Function AppsFeatures {
 
 # Debloat apps.
 Function DebloatApps {
-$ErrorActionPreference = 'SilentlyContinue'
+	$ErrorActionPreference = 'SilentlyContinue'
 	Write-Host "Removing all bloatware..."
 	# Inbox UWP apps.
 	Write-Host "    Uninstalling unnecessary UWP apps..."
 	$Bloatware = @(
-	"Microsoft.549981C3F5F10"
-	"Microsoft.BingNews"
-	"Microsoft.BingWeather"
-	"Microsoft.GamingApp"
-	"Microsoft.GamingServices" 
-	"Microsoft.GetHelp" 
-	"Microsoft.Getstarted" 
-	"Microsoft.Messaging"
-	"Microsoft.Microsoft3DViewer" 
-	"Microsoft.MicrosoftStickyNotes"  
-	"Microsoft.MSPaint"
-	"Microsoft.MicrosoftOfficeHub"
-	"Microsoft.Office.OneNote"
-	"Microsoft.MixedReality.Portal"
-	"Microsoft.MicrosoftSolitaireCollection" 
-	"Microsoft.NetworkSpeedTest" 
-	"Microsoft.News" 
-	"Microsoft.Office.Sway" 
-	"Microsoft.OneConnect"
-	"Microsoft.Paint"
-	"Microsoft.People" 
-	"Microsoft.PowerAutomateDesktop"
-	"Microsoft.Print3D" 
-	"Microsoft.SkypeApp"
-	"Microsoft.ScreenSketch"
-	"Microsoft.StorePurchaseApp" 
-	"Microsoft.Todos"
-	"Microsoft.WindowsAlarms"
-	# "Microsoft.WindowsCamera"
-	"Microsoft.WindowsCommunicationsApps" 
-	"Microsoft.WindowsFeedbackHub" 
-	"Microsoft.WindowsMaps" 
-	"Microsoft.WindowsSoundRecorder"
-	"Microsoft.XboxApp"
-	"Microsoft.XboxGamingOverlay"
-	"Microsoft.YourPhone"
-	"Microsoft.ZuneMusic"
-	"Microsoft.ZuneVideo"
+		"Microsoft.549981C3F5F10"
+		"Microsoft.BingNews"
+		"Microsoft.BingWeather"
+		"Microsoft.GamingApp"
+		"Microsoft.GamingServices" 
+		"Microsoft.GetHelp" 
+		"Microsoft.Getstarted" 
+		"Microsoft.Messaging"
+		"Microsoft.Microsoft3DViewer" 
+		"Microsoft.MicrosoftStickyNotes"  
+		"Microsoft.MSPaint"
+		"Microsoft.MicrosoftOfficeHub"
+		"Microsoft.Office.OneNote"
+		"Microsoft.MixedReality.Portal"
+		"Microsoft.MicrosoftSolitaireCollection" 
+		"Microsoft.NetworkSpeedTest" 
+		"Microsoft.News" 
+		"Microsoft.Office.Sway" 
+		"Microsoft.OneConnect"
+		"Microsoft.Paint"
+		"Microsoft.People" 
+		"Microsoft.PowerAutomateDesktop"
+		"Microsoft.Print3D" 
+		"Microsoft.SkypeApp"
+		"Microsoft.ScreenSketch"
+		"Microsoft.StorePurchaseApp" 
+		"Microsoft.Todos"
+		"Microsoft.WindowsAlarms"
+		# "Microsoft.WindowsCamera"
+		"Microsoft.WindowsCommunicationsApps" 
+		"Microsoft.WindowsFeedbackHub" 
+		"Microsoft.WindowsMaps" 
+		"Microsoft.WindowsSoundRecorder"
+		"Microsoft.XboxApp"
+		"Microsoft.XboxGamingOverlay"
+		"Microsoft.YourPhone"
+		"Microsoft.ZuneMusic"
+		"Microsoft.ZuneVideo"
 
-	# Sponsored Apps
-	"*EclipseManager*"
-	"*ActiproSoftwareLLC*"
-	"*AdobeSystemsIncorporated.AdobePhotoshopExpress*"
-	"*Duolingo-LearnLanguagesforFree*"
-	"*PandoraMediaInc*"
-	"*CandyCrush*"
-	"*BubbleWitch3Saga*"
-	"*Wunderlist*"
-	"*Flipboard*"
-	"*Twitter*"
-	"*Facebook*"
-	"*Spotify*"
-	"*Minecraft*"
-	"*Royal Revolt*"
-	"*Sway*"
-	"*Speed Test*"
-	"*Dolby*"
+		# Sponsored Apps
+		"*EclipseManager*"
+		"*ActiproSoftwareLLC*"
+		"*AdobeSystemsIncorporated.AdobePhotoshopExpress*"
+		"*Duolingo-LearnLanguagesforFree*"
+		"*PandoraMediaInc*"
+		"*CandyCrush*"
+		"*BubbleWitch3Saga*"
+		"*Wunderlist*"
+		"*Flipboard*"
+		"*Twitter*"
+		"*Facebook*"
+		"*Spotify*"
+		"*Minecraft*"
+		"*Royal Revolt*"
+		"*Sway*"
+		"*Speed Test*"
+		"*Dolby*"
 	)
 	foreach ($Bloat in $Bloatware) {
-		Get-AppxPackage -Name $Bloat| Remove-AppxPackage 
-		Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like $Bloat | Remove-AppxProvisionedPackage -Online | Out-Null
+		Get-AppxPackage -Name $Bloat | Remove-AppxPackage 
+		Get-AppxProvisionedPackage -Online | Where-Object DisplayName -Like $Bloat | Remove-AppxProvisionedPackage -Online | Out-Null
 	}
 	Write-Host "    Uninstalled unnecessary UWP apps."
 
-    # Remove Office webapps shortcuts.
+	# Remove Office webapps shortcuts.
 	Remove-Item "%appdata%\Microsoft\Windows\Start Menu\Programs\Excel.lnk"
 	Remove-Item "%appdata%\Microsoft\Windows\Start Menu\Programs\Outlook.lnk"
 	Remove-Item "%appdata%\Microsoft\Windows\Start Menu\Programs\PowerPoint.lnk"
@@ -240,21 +240,21 @@ Function UnpinStartTiles {
 	Write-Host " "
 	Write-Host "Unpinning all tiles from Start Menu..."
 	Set-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '<LayoutModificationTemplate xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout" Version="1" xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification">'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '  <LayoutOptions StartTileGroupCellWidth="6" />'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '  <DefaultLayoutOverride>'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '    <StartLayoutCollection>'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '      <defaultlayout:StartLayout GroupCellWidth="6" />'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '    </StartLayoutCollection>'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '  </DefaultLayoutOverride>'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '    <CustomTaskbarLayoutCollection>'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '      <defaultlayout:TaskbarLayout>'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '        <taskbar:TaskbarPinList>'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '          <taskbar:UWA AppUserModelID="Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" />'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '          <taskbar:DesktopApp DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\System Tools\File Explorer.lnk" />'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '        </taskbar:TaskbarPinList>'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '      </defaultlayout:TaskbarLayout>'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '    </CustomTaskbarLayoutCollection>'
-	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -value '</LayoutModificationTemplate>'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '  <LayoutOptions StartTileGroupCellWidth="6" />'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '  <DefaultLayoutOverride>'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '    <StartLayoutCollection>'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '      <defaultlayout:StartLayout GroupCellWidth="6" />'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '    </StartLayoutCollection>'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '  </DefaultLayoutOverride>'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '    <CustomTaskbarLayoutCollection>'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '      <defaultlayout:TaskbarLayout>'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '        <taskbar:TaskbarPinList>'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '          <taskbar:UWA AppUserModelID="Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" />'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '          <taskbar:DesktopApp DesktopApplicationLinkPath="%APPDATA%\Microsoft\Windows\Start Menu\Programs\System Tools\File Explorer.lnk" />'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '        </taskbar:TaskbarPinList>'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '      </defaultlayout:TaskbarLayout>'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '    </CustomTaskbarLayoutCollection>'
+	Add-Content -Path 'C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\DefaultLayouts.xml' -Value '</LayoutModificationTemplate>'
 	$START_MENU_LAYOUT = @"
 	<LayoutModificationTemplate xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout" Version="1" xmlns:taskbar="http://schemas.microsoft.com/Start/2014/TaskbarLayout" xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification">
 		<LayoutOptions StartTileGroupCellWidth="6" />
@@ -265,38 +265,37 @@ Function UnpinStartTiles {
 		</DefaultLayoutOverride>
 	</LayoutModificationTemplate>
 "@
-	$layoutFile="C:\Windows\StartMenuLayout.xml"
+	$layoutFile = "C:\Windows\StartMenuLayout.xml"
 	# Delete layout file if it already exists.
-	If(Test-Path $layoutFile)
-	{
+	If (Test-Path $layoutFile) {
 		Remove-Item $layoutFile
 	}
 	# Creates a blank layout file.
 	$START_MENU_LAYOUT | Out-File $layoutFile -Encoding ASCII
 	$regAliases = @("HKLM", "HKCU")
 	# Assign the start layout and force it to apply with "LockedStartLayout" at both the machine and user level.
-	foreach ($regAlias in $regAliases){
+	foreach ($regAlias in $regAliases) {
 		$basePath = $regAlias + ":\SOFTWARE\Policies\Microsoft\Windows"
 		$keyPath = $basePath + "\Explorer" 
-		IF(!(Test-Path -Path $keyPath)) { 
+		IF (!(Test-Path -Path $keyPath)) { 
 			New-Item -Path $basePath -Name "Explorer" | Out-Null
 		}
 		Set-ItemProperty -Path $keyPath -Name "LockedStartLayout" -Value 1
 		Set-ItemProperty -Path $keyPath -Name "StartLayoutFile" -Value $layoutFile
 	}
 	# Restart Explorer, open the start menu (necessary to load the new layout), and give it a few seconds to process.
-	Stop-Process -name explorer -Force
+	Stop-Process -Name explorer -Force
 	Start-Sleep -s 5
 	$wshell = New-Object -ComObject wscript.shell; $wshell.SendKeys('^{ESCAPE}')
 	Start-Sleep -s 5
 	# Enable the ability to pin items again by disabling "LockedStartLayout".
-	foreach ($regAlias in $regAliases){
+	foreach ($regAlias in $regAliases) {
 		$basePath = $regAlias + ":\SOFTWARE\Policies\Microsoft\Windows"
 		$keyPath = $basePath + "\Explorer" 
 		Set-ItemProperty -Path $keyPath -Name "LockedStartLayout" -Value 0
 	}
 	# Restart Explorer and delete the layout file.
-	Stop-Process -name explorer -Force
+	Stop-Process -Name explorer -Force
 	# Uncomment the next line to make clean start menu default for all new users.
 	Import-StartLayout -LayoutPath $layoutFile -MountPath $env:SystemDrive\
 	Remove-Item $layoutFile
@@ -312,45 +311,51 @@ Function UnpinAppsFromTaskbar {
 		"Office"
 		"Xbox"
 		"Mail"
+		"Microsoft Edge"
 	)
 	ForEach ($AppName in $AppNames) {
- 		((New-Object -Com Shell.Application).NameSpace('shell:::{4234d49b-0245-4df3-b780-3893943456e1}').Items() | ?{$_.Name -eq $AppName}).Verbs() | ?{$_.Name.replace('&','') -match 'Unpin from taskbar'} | %{$_.DoIt(); $exec = $true} -ErrorAction SilentlyContinue | Out-Null
+		# Check if App is installed
+		if ( $App = ((New-Object -Com Shell.Application).NameSpace('shell:::{4234d49b-0245-4df3-b780-3893943456e1}').Items() | Where-Object { $_.Name -eq $AppName })) {
+			$App.Verbs() | Where-Object { $_.Name.replace('&', '') -match 'Unpin from taskbar' } | ForEach-Object { $_.DoIt(); $exec = $true } -ErrorAction SilentlyContinue | Out-Null
+		}
 	}
 	Write-Host "Unpinned apps from Taskbar."
 }
 
 # Install WinGet
 Function InstallWinGet {
-    $ErrorActionPreference = "Stop"
+	$ErrorActionPreference = "Stop"
 	Write-Host " "
 	# Check if WinGet is already installed.
-    try {if(Get-Command winget) {
-		# Inform user and skip ahead if installed.
-        Write-Host "WinGet is already installed on this device."
-        }}
+	try {
+		if (Get-Command winget) {
+			# Inform user and skip ahead if installed.
+			Write-Host "WinGet is already installed on this device."
+		}
+	}
 	# Install WinGet if not installed.
-    catch {
+	catch {
 		# Import BitsTransfer module, ping GitHub - if success, proceed with installation, else print no connection message.
 		Import-Module BitsTransfer
 		$result = Test-NetConnection github.com 	
-		if( $result.PingSucceeded ) {
+		if ( $result.PingSucceeded ) {
 			Write-Host "Downloading WinGet installation packages..."
 			Start-BitsTransfer https://github.com/CleanWin/Files/raw/main/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle
 			Start-BitsTransfer https://github.com/CleanWin/Files/raw/main/Microsoft.VCLibs.140.00.UWPDesktop_14.0.29231.0_x64__8wekyb3d8bbwe.Appx
 			# Hash the files, if hashes match, begin installation or write warning.
-			$filehash1 =(Get-FileHash "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle" -Algorithm SHA256).Hash
+			$filehash1 = (Get-FileHash "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle" -Algorithm SHA256).Hash
 			$filehash2 = (Get-FileHash "Microsoft.VCLibs.140.00.UWPDesktop_14.0.29231.0_x64__8wekyb3d8bbwe.Appx" -Algorithm SHA256).Hash
-				if ( ($filehash1 -eq "CEE94DB96EB0995BA36FAA3D6417CA908C368A2829D4F24791D96D83BDE6F724") -and ($filehash2 -eq "6602159C341BAFEA747D0EDF15669AC72DF8817299FBFAA90469909E06794256") ) {
-					Write-Host "Successfully verified package hashes."
-					Write-Host "Installing WinGet..."
-					Add-AppxPackage -Path .\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle -DependencyPath .\Microsoft.VCLibs.140.00.UWPDesktop_14.0.29231.0_x64__8wekyb3d8bbwe.Appx
-					Remove-Item Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle
-					Remove-Item Microsoft.VCLibs.140.00.UWPDesktop_14.0.29231.0_x64__8wekyb3d8bbwe.Appx
-					Write-Host "Installed Windows Package Manager (WinGet)."
-				}
-				else {
-					write-host "Package hashes mismatch. WinGet won't be installed."
-				}
+			if ( ($filehash1 -eq "CEE94DB96EB0995BA36FAA3D6417CA908C368A2829D4F24791D96D83BDE6F724") -and ($filehash2 -eq "6602159C341BAFEA747D0EDF15669AC72DF8817299FBFAA90469909E06794256") ) {
+				Write-Host "Successfully verified package hashes."
+				Write-Host "Installing WinGet..."
+				Add-AppxPackage -Path .\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle -DependencyPath .\Microsoft.VCLibs.140.00.UWPDesktop_14.0.29231.0_x64__8wekyb3d8bbwe.Appx
+				Remove-Item Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle
+				Remove-Item Microsoft.VCLibs.140.00.UWPDesktop_14.0.29231.0_x64__8wekyb3d8bbwe.Appx
+				Write-Host "Installed Windows Package Manager (WinGet)."
+			}
+			else {
+				Write-Host "Package hashes mismatch. WinGet won't be installed."
+			}
 		}
 		else {
 			Write-Host "Could not connect to the internet. WinGet won't be installed."
@@ -359,16 +364,16 @@ Function InstallWinGet {
 }
 
 Function UninstallOneDrive {
-$ErrorActionPreference = 'SilentlyContinue'
+	$ErrorActionPreference = 'SilentlyContinue'
 	Write-Host " "
 	Write-Host "Uninstalling Microsoft OneDrive..."
 	$OneDriveKey = 'HKLM:Software\Policies\Microsoft\Windows\OneDrive'
 	If (!(Test-Path $OneDriveKey)) {
 		mkdir $OneDriveKey | Out-Null
 		Set-ItemProperty $OneDriveKey -Name OneDrive -Value DisableFileSyncNGSC
-		}
+	}
 	Set-ItemProperty $OneDriveKey -Name OneDrive -Value DisableFileSyncNGSC
-	New-PSDrive  HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
+	New-PSDrive HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
 	$onedrive = "$env:SYSTEMROOT\SysWOW64\OneDriveSetup.exe"
 	$ExplorerReg1 = "HKCR:\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"
 	$ExplorerReg2 = "HKCR:\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"
@@ -410,44 +415,44 @@ $ErrorActionPreference = 'SilentlyContinue'
 }
 
 Function CleanupRegistry {
-$ErrorActionPreference = 'SilentlyContinue'
+	$ErrorActionPreference = 'SilentlyContinue'
 	Write-Host " "
 	Write-Host "Deleting unnecessary registry keys..."
-    	$Keys = @(
+	$Keys = @(
 		New-PSDrive HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT
-        # Remove Background Tasks.
-        "HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\46928bounde.EclipseManager_2.2.4.51_neutral__a5h4egax66k6y"
-        "HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
-        "HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\Microsoft.MicrosoftOfficeHub_17.7909.7600.0_x64__8wekyb3d8bbwe"
-        "HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\Microsoft.PPIProjection_10.0.15063.0_neutral_neutral_cw5n1h2txyewy"
-        "HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\Microsoft.XboxGameCallableUI_1000.15063.0.0_neutral_neutral_cw5n1h2txyewy"
-        "HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\Microsoft.XboxGameCallableUI_1000.16299.15.0_neutral_neutral_cw5n1h2txyewy"
+		# Remove Background Tasks.
+		"HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\46928bounde.EclipseManager_2.2.4.51_neutral__a5h4egax66k6y"
+		"HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
+		"HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\Microsoft.MicrosoftOfficeHub_17.7909.7600.0_x64__8wekyb3d8bbwe"
+		"HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\Microsoft.PPIProjection_10.0.15063.0_neutral_neutral_cw5n1h2txyewy"
+		"HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\Microsoft.XboxGameCallableUI_1000.15063.0.0_neutral_neutral_cw5n1h2txyewy"
+		"HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\Microsoft.XboxGameCallableUI_1000.16299.15.0_neutral_neutral_cw5n1h2txyewy"
             
-        # Windows File
-        "HKCR:\Extensions\ContractId\Windows.File\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
+		# Windows File
+		"HKCR:\Extensions\ContractId\Windows.File\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
             
-        # Registry keys to delete if they aren't uninstalled by RemoveAppXPackage/RemoveAppXProvisionedPackage.
-        "HKCR:\Extensions\ContractId\Windows.Launch\PackageId\46928bounde.EclipseManager_2.2.4.51_neutral__a5h4egax66k6y"
-        "HKCR:\Extensions\ContractId\Windows.Launch\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
-        "HKCR:\Extensions\ContractId\Windows.Launch\PackageId\Microsoft.PPIProjection_10.0.15063.0_neutral_neutral_cw5n1h2txyewy"
-        "HKCR:\Extensions\ContractId\Windows.Launch\PackageId\Microsoft.XboxGameCallableUI_1000.15063.0.0_neutral_neutral_cw5n1h2txyewy"
-        "HKCR:\Extensions\ContractId\Windows.Launch\PackageId\Microsoft.XboxGameCallableUI_1000.16299.15.0_neutral_neutral_cw5n1h2txyewy"
+		# Registry keys to delete if they aren't uninstalled by RemoveAppXPackage/RemoveAppXProvisionedPackage.
+		"HKCR:\Extensions\ContractId\Windows.Launch\PackageId\46928bounde.EclipseManager_2.2.4.51_neutral__a5h4egax66k6y"
+		"HKCR:\Extensions\ContractId\Windows.Launch\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
+		"HKCR:\Extensions\ContractId\Windows.Launch\PackageId\Microsoft.PPIProjection_10.0.15063.0_neutral_neutral_cw5n1h2txyewy"
+		"HKCR:\Extensions\ContractId\Windows.Launch\PackageId\Microsoft.XboxGameCallableUI_1000.15063.0.0_neutral_neutral_cw5n1h2txyewy"
+		"HKCR:\Extensions\ContractId\Windows.Launch\PackageId\Microsoft.XboxGameCallableUI_1000.16299.15.0_neutral_neutral_cw5n1h2txyewy"
             
-        # Scheduled Tasks to delete.
-        "HKCR:\Extensions\ContractId\Windows.PreInstalledConfigTask\PackageId\Microsoft.MicrosoftOfficeHub_17.7909.7600.0_x64__8wekyb3d8bbwe"
+		# Scheduled Tasks to delete.
+		"HKCR:\Extensions\ContractId\Windows.PreInstalledConfigTask\PackageId\Microsoft.MicrosoftOfficeHub_17.7909.7600.0_x64__8wekyb3d8bbwe"
             
-        # Windows Protocol Keys.
-        "HKCR:\Extensions\ContractId\Windows.Protocol\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
-        "HKCR:\Extensions\ContractId\Windows.Protocol\PackageId\Microsoft.PPIProjection_10.0.15063.0_neutral_neutral_cw5n1h2txyewy"
-        "HKCR:\Extensions\ContractId\Windows.Protocol\PackageId\Microsoft.XboxGameCallableUI_1000.15063.0.0_neutral_neutral_cw5n1h2txyewy"
-        "HKCR:\Extensions\ContractId\Windows.Protocol\PackageId\Microsoft.XboxGameCallableUI_1000.16299.15.0_neutral_neutral_cw5n1h2txyewy"
+		# Windows Protocol Keys.
+		"HKCR:\Extensions\ContractId\Windows.Protocol\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
+		"HKCR:\Extensions\ContractId\Windows.Protocol\PackageId\Microsoft.PPIProjection_10.0.15063.0_neutral_neutral_cw5n1h2txyewy"
+		"HKCR:\Extensions\ContractId\Windows.Protocol\PackageId\Microsoft.XboxGameCallableUI_1000.15063.0.0_neutral_neutral_cw5n1h2txyewy"
+		"HKCR:\Extensions\ContractId\Windows.Protocol\PackageId\Microsoft.XboxGameCallableUI_1000.16299.15.0_neutral_neutral_cw5n1h2txyewy"
                
-        # Windows Share Target.
-        "HKCR:\Extensions\ContractId\Windows.ShareTarget\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
-    )
+		# Windows Share Target.
+		"HKCR:\Extensions\ContractId\Windows.ShareTarget\PackageId\ActiproSoftwareLLC.562882FEEB491_2.6.18.18_neutral__24pqs290vpjk0"
+	)
         
-    # Delete the keys.
-    ForEach ($Key in $Keys) {
+	# Delete the keys.
+	ForEach ($Key in $Keys) {
 		Remove-Item $Key -Recurse
 	}
 	Write-Host "Deleted unnecessary registry keys."
@@ -460,7 +465,7 @@ Function EnableEdgeStartupBoost {
 	$EdgeStartupBoost = "HKLM:\SOFTWARE\Policies\Microsoft\Edge"
 	If (!(Test-Path $EdgeStartupBoost )) {
 		New-Item -Path $EdgeStartupBoost -Force | Out-Null
-		}
+	}
 	New-ItemProperty -Path $EdgeStartupBoost -Name "StartupBoostEnabled" -Type DWord -Value 1 | Out-Null
 	Write-Host "Turned on Startup Boost in Microsoft Edge."
 }
@@ -473,47 +478,47 @@ Function DisableEdgeStartupBoost {
 # Disable "Web Browsing - Restore recommended promo in Settings"
 Function DisableBrowserRestoreAd {
 	Write-Host " "
-    Import-Module BitsTransfer 
-    Start-BitsTransfer https://github.com/CleanWin/Files/raw/main/Albacore.ViVe.dll
+	Import-Module BitsTransfer 
+	Start-BitsTransfer https://github.com/CleanWin/Files/raw/main/Albacore.ViVe.dll
 	Start-BitsTransfer https://github.com/CleanWin/Files/raw/main/ViVeTool.exe
-    If (Test-Path ViVeTool.exe) {
-        Write-Host "Turning off 'Web browsing: Restore recommended' suggestion from Settings..."
+	If (Test-Path ViVeTool.exe) {
+		Write-Host "Turning off 'Web browsing: Restore recommended' suggestion from Settings..."
 		./ViVeTool.exe delconfig 23531064 1 | Out-Null
 		Remove-Item ViVeTool.exe
 		Remove-Item Albacore.ViVe.dll
-        Write-Host "Turned off 'Web browsing: Restore recommended' suggestion from Settings."
+		Write-Host "Turned off 'Web browsing: Restore recommended' suggestion from Settings."
 	} 
 	else {
-	  Write-Host "Could not connect to the internet. Browser Restore recommendation won't be turned off."
+		Write-Host "Could not connect to the internet. Browser Restore recommendation won't be turned off."
 	}
 }
 
 Function EnableBrowserRestoreAd {
 	Write-Host " "
-    Import-Module BitsTransfer 
-    Start-BitsTransfer https://github.com/CleanWin/Files/raw/main/Albacore.ViVe.dll
+	Import-Module BitsTransfer 
+	Start-BitsTransfer https://github.com/CleanWin/Files/raw/main/Albacore.ViVe.dll
 	Start-BitsTransfer https://github.com/CleanWin/Files/raw/main/ViVeTool.exe
-    If (Test-Path ViVeTool.exe) {
+	If (Test-Path ViVeTool.exe) {
 		./ViVeTool.exe addconfig 23531064 0 | Out-Null
 		Remove-Item ViVeTool.exe
 		Remove-Item Albacore.ViVe.dll
-        Write-Host "Turned on 'Web browsing: Restore recommended' suggestion from Settings."
+		Write-Host "Turned on 'Web browsing: Restore recommended' suggestion from Settings."
 	} 
 	else {
-	  Write-Host "Could not connect to the internet. Browser Restore recommendation won't be turned on."
+		Write-Host "Could not connect to the internet. Browser Restore recommendation won't be turned on."
 	}
 }
 
 # Uninstall Features
 Function UninstallFeatures {
-    Write-Host " "
-    Write-Host "Disabling and uninstalling unnecessary features..."
+	Write-Host " "
+	Write-Host "Disabling and uninstalling unnecessary features..."
 	# Uninstall capabilities
-    $Capabilities = @(
+	$Capabilities = @(
 		"App.StepsRecorder*"
 		"App.Support.QuickAssist*"
-        "Hello.Face*"
-        "MathRecognizer*"
+		"Hello.Face*"
+		"MathRecognizer*"
 		"Media.WindowsMediaPlayer*"
 		"Microsoft-Windows-SnippingTool*"
 		"Microsoft.Windows.MSPaint*" 
@@ -521,57 +526,57 @@ Function UninstallFeatures {
 		"Microsoft.Windows.WordPad*"
 		"Print.Fax.Scan*"
 		"XPS.Viewer*"
-    )
-    ForEach ($Capability in $Capabilities) {
+	)
+	ForEach ($Capability in $Capabilities) {
 		Remove-WindowsCapability -Name $Capability -Online | Out-Null
 	}
 	# Print user friendly list of capabilities uninstalled
-    $CapLists =@(
-        "Math Recognizer"
+	$CapLists = @(
+		"Math Recognizer"
 		"Microsoft Paint"
 		"Quick Assist"
 		"Snipping Tool"
-        "Steps Recorder"
-        "Windows Fax & Scan"
-        "Windows Media Player"
-        "Windows Hello Face"
+		"Steps Recorder"
+		"Windows Fax & Scan"
+		"Windows Media Player"
+		"Windows Hello Face"
 		"Windows PowerShell ISE"
 		"Windows XPS Features"
 		"WordPad"
-    )
-    ForEach ($CapList in $CapLists) {
-        Write-Host "    - Uninstalled $CapList"
-    }
+	)
+	ForEach ($CapList in $CapLists) {
+		Write-Host "    - Uninstalled $CapList"
+	}
 
 	# Uninstall Optional features.
-    $OptionalFeatures = @(
-        "WorkFolders-Client*"
-        "Printing-XPSServices-Feature*"
-    )
-    ForEach ($OptionalFeature in $OptionalFeatures) {
-        Get-WindowsOptionalFeature -Online | Where-Object { $_.FeatureName -eq $OptionalFeature } | Disable-WindowsOptionalFeature -Online -NoRestart -WarningAction SilentlyContinue | Out-Null
-    }
-    Write-Host "    - Disabled Work Folders Client."
+	$OptionalFeatures = @(
+		"WorkFolders-Client*"
+		"Printing-XPSServices-Feature*"
+	)
+	ForEach ($OptionalFeature in $OptionalFeatures) {
+		Get-WindowsOptionalFeature -Online | Where-Object { $_.FeatureName -eq $OptionalFeature } | Disable-WindowsOptionalFeature -Online -NoRestart -WarningAction SilentlyContinue | Out-Null
+	}
+	Write-Host "    - Disabled Work Folders Client."
 
-    Write-Host "Finished disabling and uninstalling unnecessary features."
+	Write-Host "Finished disabling and uninstalling unnecessary features."
 }
 
 # Enable WSL
 Function EnableWSL {
-    Write-Host " "
-    # Import BitsTransfer module, ping github - if success, enable WSL, else print no connection message.
-    Import-Module BitsTransfer 
+	Write-Host " "
+	# Import BitsTransfer module, ping github - if success, enable WSL, else print no connection message.
+	Import-Module BitsTransfer 
 	$result = Test-NetConnection github.com
-	if( $result.PingSucceeded ) {
-        Write-Host "Enabling Windows Subsystem for Linux..."
-        Enable-WindowsOptionalFeature -FeatureName "Microsoft-Windows-Subsystem-Linux" -Online -All -NoRestart -WarningAction Ignore | Out-Null
-        Enable-WindowsOptionalFeature -FeatureName "VirtualMachinePlatform" -Online -All -NoRestart -WarningAction Ignore | Out-Null
-        Enable-WindowsOptionalFeature -FeatureName "Microsoft-Hyper-V" -Online -All -NoRestart -WarningAction Ignore | Out-Null
-        Write-Host "Enabled Windows Subsystem for Linux."
-    } 
-    else {
-        Write-Host "Could not connect to the internet. WSL won't be enabled."
-    }
+	if ( $result.PingSucceeded ) {
+		Write-Host "Enabling Windows Subsystem for Linux..."
+		Enable-WindowsOptionalFeature -FeatureName "Microsoft-Windows-Subsystem-Linux" -Online -All -NoRestart -WarningAction Ignore | Out-Null
+		Enable-WindowsOptionalFeature -FeatureName "VirtualMachinePlatform" -Online -All -NoRestart -WarningAction Ignore | Out-Null
+		Enable-WindowsOptionalFeature -FeatureName "Microsoft-Hyper-V" -Online -All -NoRestart -WarningAction Ignore | Out-Null
+		Write-Host "Enabled Windows Subsystem for Linux."
+	} 
+	else {
+		Write-Host "Could not connect to the internet. WSL won't be enabled."
+	}
 }
 
 # Enable Sandbox
@@ -587,7 +592,7 @@ Function EnabledotNET3.5 {
 	Write-Host " "
 	# Ping github - if success, enable WSL, else print no connection message.
 	$result = Test-NetConnection github.com
-	if( $result.PingSucceeded ) {
+	if ( $result.PingSucceeded ) {
 		Write-Host "Enabling dotNET 3.5..."
 		Dism /online /Enable-Feature /FeatureName:NetFx3 /NoRestart /Quiet
 		Write-Host "Enabled dotNET 3.5"
@@ -615,16 +620,16 @@ Function Winstall {
 	Write-Host " "
 	If (Test-Path Winstall.txt) {
 		Write-Host "Found Winstall.txt! Beginning Winstall..."
-        Get-Content 'Winstall.txt' | Foreach-Object {
-            $App = $_.Split('=')
-            Write-Host "Installing $App..."
-            winget install $App
-        }
-        Write-Host "Winstall has successfully installed the package(s)."
-    }
-    else {
-        Write-Host "Winstall.txt was not found. Learn more at bit.ly/Winstall."
-    }
+		Get-Content 'Winstall.txt' | ForEach-Object {
+			$App = $_.Split('=')
+			Write-Host "Installing $App..."
+			winget install $App
+		}
+		Write-Host "Winstall has successfully installed the package(s)."
+	}
+	else {
+		Write-Host "Winstall.txt was not found. Learn more at bit.ly/Winstall."
+	}
 }
 
 # Install HEVC
@@ -633,7 +638,7 @@ Function InstallHEVC {
 	# Import BitsTransfer module, ping github - if success, install HEVC Video Extensions, else print no connection message.
 	$result = Test-NetConnection github.com
 	if (-not (Get-AppxPackage -Name Microsoft.HEVCVideoExtension)) {
-		if( $result.PingSucceeded ) {
+		if ( $result.PingSucceeded ) {
 			Import-Module BitsTransfer
 			Write-Host "Downloading HEVC Video Extensions..."
 			Start-BitsTransfer "https://github.com/code-rgb/Files-1/raw/main/Microsoft.HEVCVideoExtension_1.0.41334.0_x64__8wekyb3d8bbwe.Appx"
@@ -759,13 +764,13 @@ Function DisableBackgroundApps {
 		"Microsoft.Windows.ShellExperienceHost",
 		"Microsoft.Windows.StartMenuExperienceHost",
 		"Microsoft.WindowsStore"
-		)
-		$OFS = "|"
-		Get-ChildItem -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications | Where-Object -FilterScript {$_.PSChildName -notmatch "^$($ExcludedApps.ForEach({[regex]::Escape($_)}))"} | ForEach-Object -Process {
-			New-ItemProperty -Path $_.PsPath -Name Disabled -PropertyType DWord -Value 1 -Force | Out-Null
-			New-ItemProperty -Path $_.PsPath -Name DisabledByUser -PropertyType DWord -Value 1 -Force | Out-Null
-		}
-		$OFS = " "
+	)
+	$OFS = "|"
+	Get-ChildItem -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications | Where-Object -FilterScript { $_.PSChildName -notmatch "^$($ExcludedApps.ForEach({[regex]::Escape($_)}))" } | ForEach-Object -Process {
+		New-ItemProperty -Path $_.PsPath -Name Disabled -PropertyType DWord -Value 1 -Force | Out-Null
+		New-ItemProperty -Path $_.PsPath -Name DisabledByUser -PropertyType DWord -Value 1 -Force | Out-Null
+	}
+	$OFS = " "
 	Write-Host "Turned off Background apps."
 }
 
@@ -780,7 +785,7 @@ Function EnableBackgroundApps {
 
 # Disable Feedback
 Function DisableFeedback {
-$ErrorActionPreference = "SilentlyContinue"
+	$ErrorActionPreference = "SilentlyContinue"
 	Write-Host " "
 	Write-Host "Turning off Feedback notifications..."
 	$Feedback1 = "HKCU:\SOFTWARE\Microsoft\Siuf\Rules"
@@ -789,11 +794,11 @@ $ErrorActionPreference = "SilentlyContinue"
 	$Feedback4 = "Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload"
 	If (!(Test-Path $Feedback1)) {
 		New-Item -Path $Feedback1 -Force | Out-Null
-		}
+	}
 	Set-ItemProperty -Path $Feedback1 -Name "NumberOfSIUFInPeriod" -Type DWord -Value 1
 	If (!(Test-Path $Feedback2)) {
 		New-Item -Path $Feedback2 -Force | Out-Null
-		}
+	}
 	Set-ItemProperty -Path $Feedback2 -Name "DoNotShowFeedbackNotifications" -Type DWord -Value 1
 	Disable-ScheduledTask -TaskName $Feedback3 | Out-Null
 	Disable-ScheduledTask -TaskName $Feedback4 | Out-Null
@@ -806,7 +811,7 @@ Function EnableFeedback {
 	$Feedback = "HKCU:\SOFTWARE\Microsoft\Siuf\Rules"
 	If (!(Test-Path $Feedback )) {
 		New-Item $Feedback -Force | Out-Null
-		}
+	}
 	Remove-ItemProperty -Path $Feedback -Name "NumberOfSIUFInPeriod"
 	Write-Host "Turned on Feedback notifications."
 }
@@ -869,7 +874,7 @@ Function DisableLocationTracking {
 	$Location2 = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}"
 	If (!(Test-Path $Location1)) {
 		New-Item -Path $Location1 -Force | Out-Null
-		}
+	}
 	Set-ItemProperty -Path $Location1 -Name "Value" -Type String -Value "Deny"
 	Set-ItemProperty -Path $Location2 -Name "SensorPermissionState" -Type DWord -Value 0
 	Write-Host "Turned off Location tracking."
@@ -883,7 +888,7 @@ Function EnableLocationTracking {
 	$Location2 = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Overrides\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}"
 	If (!(Test-Path )) {
 		New-Item -Path $Location1 -Force | Out-Null
-		}
+	}
 	Set-ItemProperty -Path $Location1 -Name "Value" -Type String -Value "Allow"
 	Set-ItemProperty -Path $Location2 -Name "SensorPermissionState" -Type DWord -Value 1
 	Write-Host "Turned on Location tracking."
@@ -983,7 +988,7 @@ Function EnableSpeechRecognition {
 	$Speech = "HKCU:\Software\Microsoft\Speech_OneCore\Settings\OnlineSpeechPrivacy"
 	If (!(Test-Path )) {
 		New-Item -Path $Speech | Out-Null
-		}
+	}
 	Set-ItemProperty -Path $Speech -Name "HasAccepted" -Type DWord -Value 1
 	Write-Host "Turned on Online Speech recognition"
 }
@@ -995,7 +1000,7 @@ Function DisableTailoredExperiences {
 	$CloudContent = "HKCU:\SOFTWARE\Policies\Microsoft\Windows\CloudContent"
 	If (!(Test-Path $CloudContent )) {
 		New-Item $CloudContent -Force | Out-Null
-		}
+	}
 	Set-ItemProperty -Path $CloudContent -Name "DisableTailoredExperiencesWithDiagnosticData" -Type DWord -Value 1
 	Write-Host "Turned off Tailored experiences."
 }
@@ -1033,7 +1038,7 @@ Function EnableTelemetry {
 	$Telemetry1 = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection"
 	$Telemetry2 = "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Policies\DataCollection"
 	$Telemetry3 = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection"
-	Set-ItemProperty -Path $Telemetry1  -Name "AllowTelemetry" -Type DWord -Value 3
+	Set-ItemProperty -Path $Telemetry1 -Name "AllowTelemetry" -Type DWord -Value 3
 	Set-ItemProperty -Path $Telemetry2 -Name "AllowTelemetry" -Type DWord -Value 3
 	Set-ItemProperty -Path $Telemetry3 -Name "AllowTelemetry" -Type DWord -Value 3
 	Write-Host "Turned off telemetry."
@@ -1114,7 +1119,7 @@ Function DisableAutorun {
 	$Autorun = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"
 	If (!(Test-Path $Autorun)) {
 		New-Item -Path $Autorun | Out-Null
-		}
+	}
 	Set-ItemProperty -Path $Autorun -Name "NoDriveTypeAutoRun" -Type DWord -Value 255
 	Write-Host "Turned off Autorun for all drives."
 }
@@ -1196,10 +1201,10 @@ Function EnableReservedStorage {
 
 # Disable unnecessary services 
 Function DisableServices {
-$ErrorActionPreference = 'SilentlyContinue'
+	$ErrorActionPreference = 'SilentlyContinue'
 	Write-Host " "
 	Write-Host "Turning off unnecessary services..."
-    	$Services = @(
+	$Services = @(
 		"DiagTrack"
 		"dmwapppushservice"
 		"SysMain"
@@ -1210,8 +1215,8 @@ $ErrorActionPreference = 'SilentlyContinue'
 		"RemoteRegistry"
 		"SharedAccess"
 		"TrkWks"
-    )
-    ForEach ($Service in $Services) {
+	)
+	ForEach ($Service in $Services) {
 		Stop-Service $Service | Out-Null
 		Set-Service $Service -StartupType Disabled
 		Write-Host "    Stopped service: $Service."
@@ -1221,10 +1226,10 @@ $ErrorActionPreference = 'SilentlyContinue'
 
 # Enable unnecessary services
 Function EnableServices {
-$ErrorActionPreference = 'SilentlyContinue'
+	$ErrorActionPreference = 'SilentlyContinue'
 	Write-Host " "
 	Write-Host "Turning on unnecessary services..."
-    	$Services = @(
+	$Services = @(
 		"DiagTrack"
 		"dmwapppushservice"
 		"SysMain"
@@ -1235,8 +1240,8 @@ $ErrorActionPreference = 'SilentlyContinue'
 		"RemoteRegistry"
 		"SharedAccess"
 		"TrkWks"
-    )
-    ForEach ($Service in $Services) {
+	)
+	ForEach ($Service in $Services) {
 		Start-Service $Service | Out-Null
 		Set-Service $Service -StartupType Automatic
 		Write-Host "    Started service: $Service."
@@ -1257,12 +1262,12 @@ Function DisableTasks {
 		"Microsoft\Windows\Windows Error Reporting\QueueReporting" 
 		"Microsoft\Windows\Feedback\Siuf\DmClient"
 		"Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload"
-    )
-    ForEach ($Task in $Tasks) {
+	)
+	ForEach ($Task in $Tasks) {
 		Disable-ScheduledTask -TaskName $Task | Out-Null -ErrorAction SilentlyContinue
 		Write-Host "    Turned off task: $Task."
 	}
-    Write-Host "Turned off unnecessary tasks."
+	Write-Host "Turned off unnecessary tasks."
 }
 
 Function EnableTasks {
@@ -1276,48 +1281,48 @@ Function EnableTasks {
 		"Microsoft\Windows\Windows Error Reporting\QueueReporting" 
 		"Microsoft\Windows\Feedback\Siuf\DmClient"
 		"Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload"
-    )
-    ForEach ($Task in $Tasks) {
+	)
+	ForEach ($Task in $Tasks) {
 		Enable-ScheduledTask -TaskName $Task | Out-Null -ErrorAction SilentlyContinue
 		Write-Host "    Turned on task: $Task."
 	}
-    Write-Host "Turned on redundant tasks."
+	Write-Host "Turned on redundant tasks."
 }
 
 Function SetupWindowsUpdate {
 	Write-Host " "
 	Write-Host "Configuring Windows Update with the following policies..."
-    $WinUpdatePolicies =@(
-        "Turn off automatic updates"
-        "Do not auto restart PC if users are signed in"
-        "Delay feature updates by 20 days"
-        "Delay quality updates by 4 days"
-        "Turn off re-installation of bloatware after Windows Updates"
-    )
-    ForEach ($WinUpdatePolicy in $WinUpdatePolicies) {
-        Write-Host "    - $WinUpdatePolicy"
-    }
+	$WinUpdatePolicies = @(
+		"Turn off automatic updates"
+		"Do not auto restart PC if users are signed in"
+		"Delay feature updates by 20 days"
+		"Delay quality updates by 4 days"
+		"Turn off re-installation of bloatware after Windows Updates"
+	)
+	ForEach ($WinUpdatePolicy in $WinUpdatePolicies) {
+		Write-Host "    - $WinUpdatePolicy"
+	}
 
 	$Update1 = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"
-    $Update2 = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
-        If (!(Test-Path $Update1)) {
-          New-Item -Path $Update1 | Out-Null
-          New-Item -Path $Update2 | Out-Null
-          }
+	$Update2 = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
+	If (!(Test-Path $Update1)) {
+		New-Item -Path $Update1 | Out-Null
+		New-Item -Path $Update2 | Out-Null
+	}
 	Set-ItemProperty -Path $Update1 -Name DeferQualityUpdates -Type DWord -Value 1
-    Set-ItemProperty -Path $Update1 -Name DeferQualityUpdatesPeriodInDays -Type DWord -Value 4
-    Set-ItemProperty -Path $Update1 -Name DeferFeatureUpdates -Type DWord -Value 1
-    Set-ItemProperty -Path $Update1 -Name DeferFeatureUpdatesPeriodInDays -Type DWord -Value 20
-    Set-ItemProperty -Path $Update2 -Name NoAutoUpdate -Type DWord -Value 1
+	Set-ItemProperty -Path $Update1 -Name DeferQualityUpdatesPeriodInDays -Type DWord -Value 4
+	Set-ItemProperty -Path $Update1 -Name DeferFeatureUpdates -Type DWord -Value 1
+	Set-ItemProperty -Path $Update1 -Name DeferFeatureUpdatesPeriodInDays -Type DWord -Value 20
+	Set-ItemProperty -Path $Update2 -Name NoAutoUpdate -Type DWord -Value 1
 	Set-ItemProperty -Path $Update2 -Name NoAutoRebootWithLoggedOnUsers -Type Dword -Value 1
-    Write-Host "Windows Update policies have been configured."
-    Write-Host "Note: These policies will only take effect if you're using Windows 10 Education, Pro, Enterprise or up."
+	Write-Host "Windows Update policies have been configured."
+	Write-Host "Note: These policies will only take effect if you're using Windows 10 Education, Pro, Enterprise or up."
 }
 
 Function ResetWindowsUpdate {
-    Write-Host " "
-    Remove-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" -Recurse
-    Write-Host "All Windows Update policies were reset."
+	Write-Host " "
+	Remove-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" -Recurse
+	Write-Host "All Windows Update policies were reset."
 }
 
 Function EnablePowerdownAfterShutdown {
@@ -1426,11 +1431,11 @@ Function Hide3DObjectsInExplorer {
 	$Hide3DObjects2 = "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{31C0DD25-9439-4F12-BF41-7FF4EDA38722}\PropertyBag"
 	If (!(Test-Path $Hide3DObjects1)) {
 		New-Item -Path $Hide3DObjects1 -Force | Out-Null
-		}
+	}
 	Set-ItemProperty -Path $Hide3DObjects1 -Name "ThisPCPolicy" -Type String -Value "Hide"
 	If (!(Test-Path $Hide3DObjects2)) {
 		New-Item -Path $Hide3DObjects2 -Force | Out-Null
-		}
+	}
 	Set-ItemProperty -Path $Hide3DObjects2 -Name "ThisPCPolicy" -Type String -Value "Hide"
 	Write-Host "Hid 3D Objects from File Explorer."
 }
@@ -1572,53 +1577,55 @@ function AdminPriv {
 
 Function PlatformTools {
 	Write-Host " "
-	Write-Host "Downloaded Latest ADB and fastboot tools"
-	Import-Module BitsTransfer
-	$pf_tools = "platform-tools"
 	$adb_path = "C:\ADB"
-	Start-BitsTransfer -Source "https://dl.google.com/android/repository/platform-tools-latest-windows.zip" -Destination "$pf_tools.zip"
-	& "${env:ProgramFiles}\7-Zip\7z.exe" x "$pf_tools.zip" "-o$($pf_tools)" -y > $null
-	Move-Item -Path "$pf_tools/$pf_tools" -Destination $adb_path
-	Remove-Item -LiteralPath $pf_tools -Force -Recurse
-	Remove-Item "$pf_tools.zip"
-	Write-Host "-->  Unpacked to '$adb_path'"
-	if (AdminPriv){
-		$NewPath = ((([Environment]::GetEnvironmentVariable('Path','Machine') -split ';') + $adb_path) | Sort-Object -Unique) -join ';' 
-		[Environment]::SetEnvironmentVariable('Path', $NewPath,'Machine')
-		Write-Host "Added $adb_path to 'Path' environment"
+	if (Test-Path $adb_path) {
+		Write-Host "ADB and fastboot tools are already installed"
+	}
+	else {
+		Write-Host "Downloaded Latest ADB and fastboot tools"
+		Import-Module BitsTransfer
+		$pf_tools = "platform-tools"
+		Start-BitsTransfer -Source "https://dl.google.com/android/repository/platform-tools-latest-windows.zip" -Destination "$pf_tools.zip"
+		& "${env:ProgramFiles}\7-Zip\7z.exe" x "$pf_tools.zip" "-o$($pf_tools)" -y > $null
+		Move-Item -Path $(Get-ChildItem -Path $pf_tools).Fullname -Destination $adb_path
+		Remove-Item -LiteralPath $pf_tools -Force -Recurse
+		Remove-Item "$pf_tools.zip"
+		Write-Host "-->  Unpacked to '$adb_path'"
+		if (AdminPriv) {
+			$NewPath = ((([Environment]::GetEnvironmentVariable('Path', 'Machine') -split ';') + $adb_path) | Sort-Object -Unique) -join ';' 
+			[Environment]::SetEnvironmentVariable('Path', $NewPath, 'Machine')
+			Write-Host "Added $adb_path to 'Path' environment"
+		}
 	}
 }
 
 
-Function CheckCommand($cmdname)
-{
-    return [bool](Get-Command -Name $cmdname -ErrorAction SilentlyContinue)
+Function CheckCommand($cmdname) {
+	return [bool](Get-Command -Name $cmdname -ErrorAction SilentlyContinue)
 }
 
 
 Function VscodeExtention {
 	Write-Host " "
 	Write-Host "Installing VS Code Extentions"
-	if (CheckCommand -cmdname 'code')
-	{
+	if (CheckCommand -cmdname 'code') {
 		$vsCodeExec = "code"
 	}
-	else
-	{
+	else {
 		# Default VS code Install Path
-		$vsCodeExec = "C:\users\$env:UserName\AppData\Local\Programs\Microsoft VS Code\bin\code"
+		$vsCodeExec = "$HOME\AppData\Local\Programs\Microsoft VS Code\bin\code"
 	}
 	$extensions = @(
-		"bungcip.better-toml",  # toml extension
+		"bungcip.better-toml", # toml extension
 		"dracula-theme.theme-dracula", # theme
-		"equinusocio.vsc-material-theme-icons",  # file icon theme
-		"esbenp.prettier-vscode",  # code formatter
-		"karyfoundation.theme-karyfoundation-themes",  # theme
-		"ms-python.python",  # python extention
-		"ms-vscode.powershell",  # powershell extention
-		"oderwat.indent-rainbow",  # colorful indention
-		"PKief.material-icon-theme",  # file icon theme
-		"ritwickdey.LiveServer",  #  live server to display webpages with backend
+		"equinusocio.vsc-material-theme-icons", # file icon theme
+		"esbenp.prettier-vscode", # code formatter
+		"karyfoundation.theme-karyfoundation-themes", # theme
+		"ms-python.python", # python extention
+		"ms-vscode.powershell", # powershell extention
+		"oderwat.indent-rainbow", # colorful indention
+		"PKief.material-icon-theme", # file icon theme
+		"ritwickdey.LiveServer", #  live server to display webpages with backend
 		"tinkertrain.theme-panda"  # theme
 	) | Sort-Object
 
@@ -1626,7 +1633,8 @@ Function VscodeExtention {
 		try {
 			Invoke-Expression "& '$vsCodeExec' --install-extension $_ --force"
 			Write-Host # New-Line
-		} catch {
+		}
+		catch {
 			Write-Host $_
 		}
 	}
@@ -1640,37 +1648,25 @@ function CascadiaCodePL {
 	$response = Invoke-RestMethod -Uri "https://api.github.com/repos/microsoft/cascadia-code/releases/latest"
 	Start-BitsTransfer -Source $response.assets.browser_download_url -Destination "CascadiaCode_.zip"
 	& "${env:ProgramFiles}\7-Zip\7z.exe" x "CascadiaCode_.zip" -o"CascadiaCode" -y > $null
-	$font = "CascadiaCode\tff\CascadiaCodePL.tff"
-	if (AdminPriv) {
-		$font = "CascadiaCode\tff\CascadiaCodePL.tff"
-		$dest = "C:\Windows\Fonts\$font"
+	Start-Sleep 1
+	$font = $(Get-ChildItem "CascadiaCode\ttf\CascadiaCodePL.ttf").FullName
+	if (adminpriv) {
+		$dest = "c:\windows\fonts\CascadiaCodePL.ttf"
 		if (Test-Path -Path $dest) {
-			"Font $font already installed."
+			"font $font already installed."
 		}
 		else {
-			$font | Copy-Item -Destination $dest
-			Write-Host "Installed Successfully"
+			Move-Item $font $dest
+			Write-Host "Font Installed successfully."
 		}
 	}
 	else {
-		Move-Item -Path $font -Destination "$env:HOME\Desktop"
-		Write-Host "Moved font CascadiaCodePL.tff to $env:HOME\Desktop, Install Manually"
+		Move-Item $font "$home\desktop"
+		Write-Host "moved font cascadiacodepl.ttf to $home\desktop, install manually"
 	}
-	Remove-Item -LiteralPath "CascadiaCode" -Force -Recurse
-	Remove-Item "CascadiaCode_.zip"
+	Remove-Item -LiteralPath "cascadiacode" -Force -Recurse
+	Remove-Item "cascadiacode_.zip"
 }
-
-
-function DownloadGpuDriver {
-	Write-Host " "
-	Write-Host "Downloading GPU driver for Lenovo IdeaPad 300 15ISK"
-	Write-Host " "
-	Write-Host "  ->  Integrated GPU (AMD R5 M330) ..."
-	$down_path = "$env:HOME\Desktop\AMD_R5_M330.exe"
-	Start-BitsTransfer -Source "https://drivers.amd.com/drivers/non-whql-radeon-software-adrenalin-2020-21.5.1-win10-64bit-may6.exe" -Destination $down_path
-	Write-Host "Saved to '$down_path'"
-}
-
 
 # Call the desired tweak functions
 $tasks | ForEach-Object { Invoke-Expression $_ }

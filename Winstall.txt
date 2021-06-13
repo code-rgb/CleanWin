@@ -1,13 +1,14 @@
 Microsoft.WindowsTerminal
+Microsoft.VisualStudioCode
 Adobe.AdobeAcrobatReaderDC
 CodecGuide.K-LiteCodecPackStandard
 Microsoft.Teams
 Google.Chrome
 GitHub.GitHubDesktop
 Git.Git
-TonecInc.IDM
+Tonec.InternetDownloadManager
 Telegram.TelegramDesktop
 qBittorrent.qBittorrent
 Spotify.Spotify
-Python.Python
+Python.Python.3
 JanDeDobbeleer.OhMyPosh
