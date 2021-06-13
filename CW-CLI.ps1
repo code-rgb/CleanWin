@@ -18,7 +18,7 @@ $tasks = @(
 	"DisableBrowserRestoreAd", # "EnableBrowserRestoreAd",
 	"UninstallFeatures", "Install7zip", "PlatformTools", "CascadiaCodePL" #  "EnabledotNET3.5" "EnableWSL" "EnableSandbox",
 	"Winstall", "InstallHEVC", "SetPhotoViewerAssociation", # "SetPhotoViewerAssociation",
-	"ChangesDone", "VscodeExtention",
+	"ChangesDone", "VscodeExtention", "SpotifyAdsFree",
 
 	### Privacy & Security ###
 	"PrivacySecurity",
@@ -1666,6 +1666,15 @@ function CascadiaCodePL {
 	}
 	Remove-Item -LiteralPath "cascadiacode" -Force -Recurse
 	Remove-Item "cascadiacode_.zip"
+}
+
+Function SpotifyAdsFree {
+	$SpotifyExecutable = "$env:APPDATA\Spotify\Spotify.exe"
+	if (!(Test-Path -Path $SpotifyExecutable)) { winget install "Spotify.Spotify" --force }
+	$AdBlockScript = "$PWD\SpotifyAdBlock.bat"
+	Set-Content -Path $AdBlockScript -Value (New-Object System.Net.WebClient).DownloadString('https://git.io/JZFjM')
+	Start-Process "cmd.exe" "/c $AdBlockScript"
+	Remove-Item $AdBlockScript
 }
 
 # Call the desired tweak functions
